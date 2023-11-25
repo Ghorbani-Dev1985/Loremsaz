@@ -22,10 +22,12 @@ Develop with JS
 <li>You can generate FA and En lorem sentence</li>
 <li>You can generate FA and En lorem word</li>
 <li>You can specify the number of generation<li>
-<li>You can see the alert in the app header after each operation edit note text and color</li>
+<li>You can see the alert in the app header after 
+each operation edit note text and color
+</li>
 <li>You can copy text to clipboard</li>
 <li>Full responsive</li>
-<li>Support EN and FA language</li>
+<li>Support EN and FA languages</li>
 </ul>
 
 
