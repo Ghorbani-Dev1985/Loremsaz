@@ -81,6 +81,9 @@ function CopyToClipboard(){
 }
 
 //EventListener
+window.addEventListener('load' , ()=>{
+  GeneratedTxt.innerHTML = FAParagraph;
+});
 PersionSelect.addEventListener('change' , ()=>{
   GeneratedTxt.style.removeProperty('text-align');
   GeneratedTxt.style.removeProperty('direction');
