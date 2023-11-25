@@ -13,7 +13,7 @@ let tooltipText = $.querySelector('.tooltipText');
 const ParagraphLbl = $.querySelector('#ParagraphLbl')
 const SentenceLbl = $.querySelector('#SentenceLbl')
 const WordLbl = $.querySelector('#WordLbl')
-
+const TopBar = $.querySelector('.TopBar')
 
 
 //FA
@@ -112,6 +112,8 @@ PersionSelect.addEventListener('change' , ()=>{
   ParagraphLbl.innerHTML = "پاراگراف";
   SentenceLbl.innerHTML = "جمله";
   WordLbl.innerHTML = "کلمه"
+  TopBar.innerHTML = "تولید کننده لورم ایپسوم"
+  document.title = "لورم ساز"
   Clear()
   AddParagraph()
 });
@@ -121,6 +123,8 @@ EnglishSelect.addEventListener('change' , ()=>{
   ParagraphLbl.innerHTML = "Paragraph";
   SentenceLbl.innerHTML = "Sentence";
   WordLbl.innerHTML = "Word"
+  TopBar.innerHTML = "Generate Lorem Ipsum"
+  document.title = "Generate Lorem"
   GenerateParagraph.checked =true;
   AddParagraph()
 });
