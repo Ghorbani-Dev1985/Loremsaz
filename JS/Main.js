@@ -24,6 +24,9 @@ let ENSentence = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed 
 
 let ENWord = ["Lorem" , "ipsum" ,"dolor" ,"sit" ,"amet" ,"consectetur" ,"adipiscing" ,"elit" ,"sed" ,"do" ,"eiusmod" ,"tempor" ,"incididunt" ,"ut" ,"labore" ,"et" ,"dolore" ,"magna" ,"aliqua" ,"Egestas" ,"purus" ,"viverra" ,"accumsan" ,"in" ,"nisl" ,"nisi" ,"Arcu" ,"cursus" ,"vitae" ,"congue" ,"mauris" ,"rhoncus" ,"aenean" ,"vel" ,"elit" ,"sceleirsque" ,"In" ,"egestas" ,"erat" ,"imperdiet" ,"sed" ,"euismod" ,"nisi" ,"porta" ,"lorem" ,"mollis" ,"Morbi" ,"tristique" ,"senectus" ,"et" ,"tincidunt" ,"ornare" ,"massa" ,"eget" ,"Dictum" ,"varius" ,"duis" ,"at" ,"consectetur" ,"lorem" ,"Nisi" ,"vitae" ,"suscipit" ,"tellus" ,"mauris" ,"a" ,"diam" ,"maecenas" ,"sed" ,"enim" ,"Velit" ,"ut" ,"tortor" ,"pretium" ,"viverra" ,"suspendisse" ,"potenti" ,"nullam" ,"Et" ,"molestie" ,"ac" ,"feugiat" ,"sed" ,"lectus" ,"Non" ,"nisi" ,"sit" ,"amet" ,"facilisis" ,"magna" ,"Dignissim" ,"diam" ,"quis" ,"enim" ,"lobortis" ,"scelerisque" ,"fermentum" ,"Odio" ,"ut" ,"enim" ,"blandit" ,"volutpat" ,"maecenas" ,"volutpat" ,"Ornare" ,"lectus" ,"sit" ,"amet" ,"est" ,"placerat" ,"in" ,"egestas" ,"erat" ,"Nisi" ,"vitae" ,"suscipit" ,"tellus" ,"mauris" ,"a" ,"diam" ,"maecenas" ,"sed" ,"Placerat" ,"duis" ,"ultricies" ,"lacus" ,"sed" ,"turpis" ,"tincidunt" ,"id" ,"aliquet"]
 
+let SentenceIndex = 0;
+let WordIndex = 0;
+
 function Ltr(){
   GeneratedTxt.style.textAlign = "left"; 
   GeneratedTxt.style.direction = "ltr"; 
@@ -42,6 +45,32 @@ function AddParagraph(){
      }
   }
 }
+function AddSentence(){
+  for(let i =0; i <= CountGenerate.value ; i++){
+    SentenceIndex++;
+    if(SentenceIndex < FASentence.length && PersionSelect.checked){
+      GeneratedTxt.innerHTML += " " + FASentence[SentenceIndex];
+    }else if(SentenceIndex < ENSentence.length && EnglishSelect.checked){
+      Ltr();
+      GeneratedTxt.innerHTML += " " + ENSentence[SentenceIndex];
+    }else{
+      SentenceIndex = 0;
+    }
+  }
+}
+function AddWord(){
+  for(let i =0; i <= CountGenerate.value ; i++){
+    WordIndex++;
+    if(WordIndex < FAWord.length && PersionSelect.checked){
+      GeneratedTxt.innerHTML += " " + FAWord[WordIndex];
+    }else if(WordIndex < ENWord.length && EnglishSelect.checked){
+      Ltr();
+      GeneratedTxt.innerHTML += " " + ENWord[WordIndex];
+    }else{
+      WordIndex = 0;
+    }
+  }
+}
 
 //EventListener
 PersionSelect.addEventListener('change' , ()=>{
@@ -50,3 +79,13 @@ PersionSelect.addEventListener('change' , ()=>{
   Clear()
   AddParagraph();
 });
+GenerateBtn.addEventListener('click' , ()=>{
+  if(GenerateParagraph.checked){
+    AddParagraph();
+  }else if(GenerateSentence.checked){
+    
+   AddSentence();
+  }else if(GenerateWord.checked){
+    AddWord();
+   }
+})
