@@ -10,6 +10,11 @@ let CountGenerate = $.querySelector('#CountGenerate');
 let PersionSelect = $.querySelector('#PersionSelect');
 let EnglishSelect = $.querySelector('#EnglishSelect');
 let tooltipText = $.querySelector('.tooltipText');
+const ParagraphLbl = $.querySelector('#ParagraphLbl')
+const SentenceLbl = $.querySelector('#SentenceLbl')
+const WordLbl = $.querySelector('#WordLbl')
+
+
 
 //FA
 let FAParagraph = "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.";
@@ -71,6 +76,8 @@ function AddWord(){
     }
   }
 }
+
+
 function CopyToClipboard(){
   navigator.clipboard.writeText(GeneratedTxt.innerHTML);
   CopyToClipboardBtn.innerHTML = "کپی متن انجام شد."
@@ -101,13 +108,21 @@ window.addEventListener('load' , ()=>{
 PersionSelect.addEventListener('change' , ()=>{
   GeneratedTxt.style.removeProperty('text-align');
   GeneratedTxt.style.removeProperty('direction');
+  GenerateParagraph.checked =true;
+  ParagraphLbl.innerHTML = "پاراگراف";
+  SentenceLbl.innerHTML = "جمله";
+  WordLbl.innerHTML = "کلمه"
   Clear()
-  AddParagraph();
+  AddParagraph()
 });
 EnglishSelect.addEventListener('change' , ()=>{
   Ltr();
   Clear();
-  AddParagraph();
+  ParagraphLbl.innerHTML = "Paragraph";
+  SentenceLbl.innerHTML = "Sentence";
+  WordLbl.innerHTML = "Word"
+  GenerateParagraph.checked =true;
+  AddParagraph()
 });
 GenerateBtn.addEventListener('click' , ()=>{
   if(GenerateParagraph.checked){
