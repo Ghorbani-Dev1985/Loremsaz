@@ -24,18 +24,29 @@ let ENSentence = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed 
 
 let ENWord = ["Lorem" , "ipsum" ,"dolor" ,"sit" ,"amet" ,"consectetur" ,"adipiscing" ,"elit" ,"sed" ,"do" ,"eiusmod" ,"tempor" ,"incididunt" ,"ut" ,"labore" ,"et" ,"dolore" ,"magna" ,"aliqua" ,"Egestas" ,"purus" ,"viverra" ,"accumsan" ,"in" ,"nisl" ,"nisi" ,"Arcu" ,"cursus" ,"vitae" ,"congue" ,"mauris" ,"rhoncus" ,"aenean" ,"vel" ,"elit" ,"sceleirsque" ,"In" ,"egestas" ,"erat" ,"imperdiet" ,"sed" ,"euismod" ,"nisi" ,"porta" ,"lorem" ,"mollis" ,"Morbi" ,"tristique" ,"senectus" ,"et" ,"tincidunt" ,"ornare" ,"massa" ,"eget" ,"Dictum" ,"varius" ,"duis" ,"at" ,"consectetur" ,"lorem" ,"Nisi" ,"vitae" ,"suscipit" ,"tellus" ,"mauris" ,"a" ,"diam" ,"maecenas" ,"sed" ,"enim" ,"Velit" ,"ut" ,"tortor" ,"pretium" ,"viverra" ,"suspendisse" ,"potenti" ,"nullam" ,"Et" ,"molestie" ,"ac" ,"feugiat" ,"sed" ,"lectus" ,"Non" ,"nisi" ,"sit" ,"amet" ,"facilisis" ,"magna" ,"Dignissim" ,"diam" ,"quis" ,"enim" ,"lobortis" ,"scelerisque" ,"fermentum" ,"Odio" ,"ut" ,"enim" ,"blandit" ,"volutpat" ,"maecenas" ,"volutpat" ,"Ornare" ,"lectus" ,"sit" ,"amet" ,"est" ,"placerat" ,"in" ,"egestas" ,"erat" ,"Nisi" ,"vitae" ,"suscipit" ,"tellus" ,"mauris" ,"a" ,"diam" ,"maecenas" ,"sed" ,"Placerat" ,"duis" ,"ultricies" ,"lacus" ,"sed" ,"turpis" ,"tincidunt" ,"id" ,"aliquet"]
 
-
+function Ltr(){
+  GeneratedTxt.style.textAlign = "left"; 
+  GeneratedTxt.style.direction = "ltr"; 
+}
+function Clear(){
+  CountGenerate.value = 1;
+  GeneratedTxt.innerHTML = "";
+}
 function AddParagraph(){
   for(let i = 0; i < CountGenerate.value ; i++){
      if(PersionSelect.checked){
        GeneratedTxt.innerHTML += `<br> ${FAParagraph}`;
      }else if(EnglishSelect.checked){
+      Ltr()
       GeneratedTxt.innerHTML += `<br> ${ENParagraph}`;
      }
   }
 }
 
 //EventListener
-PersionSelect.addEventListener('change' , (e)=>{
+PersionSelect.addEventListener('change' , ()=>{
+  GeneratedTxt.style.removeProperty('text-align');
+  GeneratedTxt.style.removeProperty('direction');
+  Clear()
   AddParagraph();
 });
