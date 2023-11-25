@@ -9,7 +9,7 @@
 ![Anurag Hazra Site Preview](./Assets/Images/Screenshot-FA.png)
 
 ---
-# App Preview FA
+# App Preview EN
 
 ![Anurag Hazra Site Preview](./Assets/Images/Screenshot-EN.png)
 
