@@ -14,7 +14,7 @@ const ParagraphLbl = $.querySelector('#ParagraphLbl')
 const SentenceLbl = $.querySelector('#SentenceLbl')
 const WordLbl = $.querySelector('#WordLbl')
 const TopBar = $.querySelector('.TopBar')
-
+const LogoText = $.querySelector('#LogoText')
 
 //FA
 let FAParagraph = "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.";
@@ -78,11 +78,19 @@ function AddWord(){
 }
 function CopyToClipboard(){
   navigator.clipboard.writeText(GeneratedTxt.innerHTML);
-  CopyToClipboardBtn.innerHTML = "کپی متن انجام شد."
-  tooltipText.innerHTML = "کپی متن انجام شد."
-  setTimeout(() => {
-    CopyToClipboardBtn.innerHTML = " کپی شدن در کلیپ بورد"
-  }, 1000);
+  if(PersionSelect.checked){
+    CopyToClipboardBtn.innerHTML = "کپی متن انجام شد"
+    tooltipText.innerHTML = "کپی متن انجام شد"
+    setTimeout(() => {
+      CopyToClipboardBtn.innerHTML = " کپی شدن در کلیپ بورد"
+    }, 1000);
+  }else{
+    CopyToClipboardBtn.innerHTML = "Text copy done"
+    tooltipText.innerHTML = "Text copy done"
+    setTimeout(() => {
+      CopyToClipboardBtn.innerHTML = "Copy To Clipboard"
+    }, 1000);
+  }
 }
 
 //EventListener
@@ -111,6 +119,9 @@ PersionSelect.addEventListener('change' , ()=>{
   SentenceLbl.innerHTML = "جمله";
   WordLbl.innerHTML = "کلمه"
   TopBar.innerHTML = "تولید کننده لورم ایپسوم"
+  LogoText.innerHTML = "لورم ساز"
+  CopyToClipboardBtn.innerHTML = "کپی شدن در کلیپ بورد"
+  CountGenerate.style.fontFamily = "Shabnam-FD"
   document.title = "لورم ساز"
   Clear()
   AddParagraph()
@@ -122,6 +133,9 @@ EnglishSelect.addEventListener('change' , ()=>{
   SentenceLbl.innerHTML = "Sentence";
   WordLbl.innerHTML = "Word"
   TopBar.innerHTML = "Generate Lorem Ipsum"
+  LogoText.innerHTML = "Generate Lorem Ipsum"
+  CopyToClipboardBtn.innerHTML = "Copy To Clipboard"
+  CountGenerate.style.fontFamily = "Shabnam"
   document.title = "Generate Lorem"
   GenerateParagraph.checked =true;
   AddParagraph()
