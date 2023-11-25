@@ -79,6 +79,11 @@ PersionSelect.addEventListener('change' , ()=>{
   Clear()
   AddParagraph();
 });
+EnglishSelect.addEventListener('change' , ()=>{
+  Ltr();
+  Clear();
+  AddParagraph();
+});
 GenerateBtn.addEventListener('click' , ()=>{
   if(GenerateParagraph.checked){
     AddParagraph();
