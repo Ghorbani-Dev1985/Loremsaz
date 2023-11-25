@@ -71,6 +71,14 @@ function AddWord(){
     }
   }
 }
+function CopyToClipboard(){
+  navigator.clipboard.writeText(GeneratedTxt.innerHTML);
+  CopyToClipboardBtn.innerHTML = "کپی متن انجام شد."
+  tooltipText.innerHTML = "کپی متن انجام شد."
+  setTimeout(() => {
+    CopyToClipboardBtn.innerHTML = "کپی متن"
+  }, 1000);
+}
 
 //EventListener
 PersionSelect.addEventListener('change' , ()=>{
@@ -94,3 +102,4 @@ GenerateBtn.addEventListener('click' , ()=>{
     AddWord();
    }
 })
+CopyToClipboardBtn.addEventListener('click' , CopyToClipboard)
