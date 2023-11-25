@@ -81,6 +81,20 @@ function CopyToClipboard(){
 }
 
 //EventListener
+AllRadioBtns.forEach((RadioBtn) => {
+  RadioBtn.addEventListener('change' , (e)=> {
+    if(e.target.id === "GenerateParagraph"){
+      Clear();
+      AddParagraph();
+    }else if(e.target.id === "GenerateSentence"){
+      Clear();
+      AddSentence();
+    }else if(e.target.id === "GenerateWord"){
+      Clear();
+      AddWord();
+    }
+  })
+});
 window.addEventListener('load' , ()=>{
   GeneratedTxt.innerHTML = FAParagraph;
 });
